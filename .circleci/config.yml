@@ -58,15 +58,13 @@ workflows:
             - checkoutEtTests
       - attendreStaging:
           requires:
-            - checkoutEtTests
+            - deployerStaging
       - acceptances1:
           requires:
-            - deployerStaging
             - attendreStaging
       - acceptances2:
           requires:
-            - deployerStaging
-            - attendreStaging
+            - acceptances1
       - notifierPassagePremierTest:
           requires:
             - acceptances1

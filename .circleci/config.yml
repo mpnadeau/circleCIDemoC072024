@@ -1,4 +1,4 @@
-version 2.1
+version: 2.1
 
 jobs:
   notifierNouvelleVersionBuild:
@@ -21,6 +21,10 @@ jobs:
     machine: true
     steps:
       - run: echo "La nouvelle version de l'application est en ligne."
+  attendreStaging:
+    machine: true
+    steps:
+      - run: echo "En attente du staging."
   checkoutEtTests:
     docker:
       - image: cimg/node:15.8.0
@@ -48,3 +52,8 @@ workflows:
   lancerApplication:
     jobs:
       - notifierNouvelleVersionBuild
+      - checkoutEtTests
+      - deployerStaging:
+          requires:
+            - checkoutEtTests
+      - attendreStaging

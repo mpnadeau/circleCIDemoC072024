@@ -34,19 +34,19 @@ jobs:
   acceptances1:
     machine: true
     steps:
-      - run: echo "Tests 1 a 5"
+      - run: echo "Tests 1 a 5."
   acceptances2:
     machine: true
     steps:
-      - run: echo "Tests 5 a 10"
+      - run: echo "Tests 5 a 10."
   deployerStaging:
     machine: true
     steps:
-      - run: echo "Staging en deploiement"
+      - run: echo "Staging en deploiement."
   deployerProduction:
     machine: true
     steps:
-      - run: echo "Production en deploiement"
+      - run: echo "Production en deploiement."
 
 workflows:
   lancerApplication:

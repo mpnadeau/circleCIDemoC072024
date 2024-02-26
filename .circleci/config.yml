@@ -24,7 +24,7 @@ jobs:
   attendreStaging:
     machine: true
     steps:
-      - run: echo "En attente du staging."
+      - run: echo "En attente du staging..."
   checkoutEtTests:
     docker:
       - image: cimg/node:15.8.0

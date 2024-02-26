@@ -77,3 +77,9 @@ workflows:
           requires:
             - acceptances1
             - acceptances2
+      - deployerProduction:
+          requires:
+            - notifierPassageTests
+      - notifierNouvelleVersion:
+          requires:
+            - deployerProduction

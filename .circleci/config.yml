@@ -35,7 +35,7 @@ jobs:
     machine: true
     steps:
       - run: echo "Tests 1 a 5"
-  acceptance2:
+  acceptances2:
     machine: true
     steps:
       - run: echo "Tests 5 a 10"
@@ -56,4 +56,12 @@ workflows:
       - deployerStaging:
           requires:
             - checkoutEtTests
-      - attendreStaging
+      - attendreStaging:
+          requires:
+            - checkoutEtTests
+      - acceptances1:
+          requires:
+            - deployerStaging
+      - acceptances2:
+          requires:
+            - deployerStaging

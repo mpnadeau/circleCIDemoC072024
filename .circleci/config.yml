@@ -62,6 +62,18 @@ workflows:
       - acceptances1:
           requires:
             - deployerStaging
+            - attendreStaging
       - acceptances2:
           requires:
             - deployerStaging
+            - attendreStaging
+      - notifierPassagePremierTest:
+          requires:
+            - acceptances1
+      - notifierPassageDeuxiemeTest:
+          requires:
+            - acceptances2
+      - notifierPassageTests:
+          requires:
+            - acceptances1
+            - acceptances2
